@@ -1,0 +1,32 @@
+{
+  "id": "58948d8e-c428-40e3-80d5-ebe0c830397a",
+  "name": "Base (Development)",
+  "publisher": "Commtel",
+  "brief": "This is about Commtel Base App",
+  "description": "Base Development Objects",
+  "privacyStatement": "",
+  "EULA": "",
+  "help": "",
+  "url": "",
+  "logo": "Commtel.jpg",
+  "version": "1.0.0.0",
+  "dependencies": [],
+  "screenshots": [],
+  "platform": "1.0.0.0",
+  "application": "21.0.0.0",
+  "idRanges": [
+    {
+      "from": 50100,
+      "to": 50149
+    }
+  ],
+  "resourceExposurePolicy": {
+    "allowDebugging": true,
+    "allowDownloadingSource": true,
+    "includeSourceInSymbolFile": true
+  },
+  "runtime": "10.0",
+  "features": [
+    "NoImplicitWith"
+  ]
+}
