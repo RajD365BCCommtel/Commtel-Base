@@ -10,154 +10,6 @@
       <rd:DataSourceID>1250fe30-5a80-439d-82f1-cd5ac1eb8880</rd:DataSourceID>
     </DataSource>
   </DataSources>
-  <DataSets>
-    <DataSet Name="DataSet_Result">
-      <Query>
-        <DataSourceName>DataSource</DataSourceName>
-        <CommandText />
-      </Query>
-      <Fields>
-        <Field Name="Status_ProdOrder">
-          <DataField>Status_ProdOrder</DataField>
-        </Field>
-        <Field Name="No_ProdOrder">
-          <DataField>No_ProdOrder</DataField>
-        </Field>
-        <Field Name="Picture_CompanyInfo">
-          <DataField>Picture_CompanyInfo</DataField>
-        </Field>
-        <Field Name="Project_No_">
-          <DataField>Project_No_</DataField>
-        </Field>
-        <Field Name="Site_No_">
-          <DataField>Site_No_</DataField>
-        </Field>
-        <Field Name="Shelter_Id">
-          <DataField>Shelter_Id</DataField>
-        </Field>
-        <Field Name="Shelter_Name">
-          <DataField>Shelter_Name</DataField>
-        </Field>
-        <Field Name="RSS_No_">
-          <DataField>RSS_No_</DataField>
-        </Field>
-        <Field Name="TodayFormatted">
-          <DataField>TodayFormatted</DataField>
-        </Field>
-        <Field Name="CompanyName">
-          <DataField>CompanyName</DataField>
-        </Field>
-        <Field Name="ProdOrderTableCaptionFilt">
-          <DataField>ProdOrderTableCaptionFilt</DataField>
-        </Field>
-        <Field Name="ProdOrderFilter">
-          <DataField>ProdOrderFilter</DataField>
-        </Field>
-        <Field Name="CurrReportPageNoCaption">
-          <DataField>CurrReportPageNoCaption</DataField>
-        </Field>
-        <Field Name="ProdOrderJobCardCaption">
-          <DataField>ProdOrderJobCardCaption</DataField>
-        </Field>
-        <Field Name="RtngNo_ProdOrderRtngLine">
-          <DataField>RtngNo_ProdOrderRtngLine</DataField>
-        </Field>
-        <Field Name="OPNo_ProdOrderRtngLine">
-          <DataField>OPNo_ProdOrderRtngLine</DataField>
-        </Field>
-        <Field Name="Type_ProdOrderRtngLine">
-          <DataField>Type_ProdOrderRtngLine</DataField>
-        </Field>
-        <Field Name="No_ProdOrderRtngLine">
-          <DataField>No_ProdOrderRtngLine</DataField>
-        </Field>
-        <Field Name="StrtTim_ProdOrderRtngLine">
-          <DataField>StrtTim_ProdOrderRtngLine</DataField>
-        </Field>
-        <Field Name="StrtDt_ProdOrderRtngLine">
-          <DataField>StrtDt_ProdOrderRtngLine</DataField>
-        </Field>
-        <Field Name="EndTime_ProdOrderRtngLine">
-          <DataField>EndTime_ProdOrderRtngLine</DataField>
-        </Field>
-        <Field Name="EndDate_ProdOrderRtngLine">
-          <DataField>EndDate_ProdOrderRtngLine</DataField>
-        </Field>
-        <Field Name="ExpCapNd_ProdOrderRtngLine">
-          <DataField>ExpCapNd_ProdOrderRtngLine</DataField>
-        </Field>
-        <Field Name="ExpCapNd_ProdOrderRtngLineFormat">
-          <DataField>ExpCapNd_ProdOrderRtngLineFormat</DataField>
-        </Field>
-        <Field Name="Desc_ProdOrder">
-          <DataField>Desc_ProdOrder</DataField>
-        </Field>
-        <Field Name="SourceNo_ProdOrder">
-          <DataField>SourceNo_ProdOrder</DataField>
-        </Field>
-        <Field Name="ProdOrdrRtngLineRTUOMCode">
-          <DataField>ProdOrdrRtngLineRTUOMCode</DataField>
-        </Field>
-        <Field Name="PrdOrdNo_ProdOrderRtngLine">
-          <DataField>PrdOrdNo_ProdOrderRtngLine</DataField>
-        </Field>
-        <Field Name="ProdOrderRtngLnStrtDtCapt">
-          <DataField>ProdOrderRtngLnStrtDtCapt</DataField>
-        </Field>
-        <Field Name="ProdOrdRtngLnEndDatCapt">
-          <DataField>ProdOrdRtngLnEndDatCapt</DataField>
-        </Field>
-        <Field Name="ProdOrdRtngLnExpcCapNdCpt">
-          <DataField>ProdOrdRtngLnExpcCapNdCpt</DataField>
-        </Field>
-        <Field Name="PrecalcTimesCaption">
-          <DataField>PrecalcTimesCaption</DataField>
-        </Field>
-        <Field Name="ProdOrderSourceNoCapt">
-          <DataField>ProdOrderSourceNoCapt</DataField>
-        </Field>
-        <Field Name="OutputCaption">
-          <DataField>OutputCaption</DataField>
-        </Field>
-        <Field Name="ScrapCaption">
-          <DataField>ScrapCaption</DataField>
-        </Field>
-        <Field Name="DateCaption">
-          <DataField>DateCaption</DataField>
-        </Field>
-        <Field Name="ByCaption">
-          <DataField>ByCaption</DataField>
-        </Field>
-        <Field Name="EmptyStringCaption">
-          <DataField>EmptyStringCaption</DataField>
-        </Field>
-        <Field Name="Position_ProdOrderComp">
-          <DataField>Position_ProdOrderComp</DataField>
-        </Field>
-        <Field Name="Position2_ProdOrderComp">
-          <DataField>Position2_ProdOrderComp</DataField>
-        </Field>
-        <Field Name="LdTimOffset_ProdOrderComp">
-          <DataField>LdTimOffset_ProdOrderComp</DataField>
-        </Field>
-        <Field Name="ExpectedQty_ProdOrderComp">
-          <DataField>ExpectedQty_ProdOrderComp</DataField>
-        </Field>
-        <Field Name="ExpectedQty_ProdOrderCompFormat">
-          <DataField>ExpectedQty_ProdOrderCompFormat</DataField>
-        </Field>
-        <Field Name="ItemNo_ProdOrderComp">
-          <DataField>ItemNo_ProdOrderComp</DataField>
-        </Field>
-        <Field Name="OrderNo_ProdOrderComp">
-          <DataField>OrderNo_ProdOrderComp</DataField>
-        </Field>
-        <Field Name="MaterialRequirementsCapt">
-          <DataField>MaterialRequirementsCapt</DataField>
-        </Field>
-      </Fields>
-    </DataSet>
-  </DataSets>
   <ReportSections>
     <ReportSection>
       <Body>
@@ -5908,4 +5760,152 @@ End Function
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
   <rd:ReportID>13de2607-912a-4929-81d3-50ba20a68559</rd:ReportID>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="Status_ProdOrder">
+          <DataField>Status_ProdOrder</DataField>
+        </Field>
+        <Field Name="No_ProdOrder">
+          <DataField>No_ProdOrder</DataField>
+        </Field>
+        <Field Name="Picture_CompanyInfo">
+          <DataField>Picture_CompanyInfo</DataField>
+        </Field>
+        <Field Name="Project_No_">
+          <DataField>Project_No_</DataField>
+        </Field>
+        <Field Name="Site_No_">
+          <DataField>Site_No_</DataField>
+        </Field>
+        <Field Name="Shelter_Id">
+          <DataField>Shelter_Id</DataField>
+        </Field>
+        <Field Name="Shelter_Name">
+          <DataField>Shelter_Name</DataField>
+        </Field>
+        <Field Name="RSS_No_">
+          <DataField>RSS_No_</DataField>
+        </Field>
+        <Field Name="TodayFormatted">
+          <DataField>TodayFormatted</DataField>
+        </Field>
+        <Field Name="CompanyName">
+          <DataField>CompanyName</DataField>
+        </Field>
+        <Field Name="ProdOrderTableCaptionFilt">
+          <DataField>ProdOrderTableCaptionFilt</DataField>
+        </Field>
+        <Field Name="ProdOrderFilter">
+          <DataField>ProdOrderFilter</DataField>
+        </Field>
+        <Field Name="CurrReportPageNoCaption">
+          <DataField>CurrReportPageNoCaption</DataField>
+        </Field>
+        <Field Name="ProdOrderJobCardCaption">
+          <DataField>ProdOrderJobCardCaption</DataField>
+        </Field>
+        <Field Name="RtngNo_ProdOrderRtngLine">
+          <DataField>RtngNo_ProdOrderRtngLine</DataField>
+        </Field>
+        <Field Name="OPNo_ProdOrderRtngLine">
+          <DataField>OPNo_ProdOrderRtngLine</DataField>
+        </Field>
+        <Field Name="Type_ProdOrderRtngLine">
+          <DataField>Type_ProdOrderRtngLine</DataField>
+        </Field>
+        <Field Name="No_ProdOrderRtngLine">
+          <DataField>No_ProdOrderRtngLine</DataField>
+        </Field>
+        <Field Name="StrtTim_ProdOrderRtngLine">
+          <DataField>StrtTim_ProdOrderRtngLine</DataField>
+        </Field>
+        <Field Name="StrtDt_ProdOrderRtngLine">
+          <DataField>StrtDt_ProdOrderRtngLine</DataField>
+        </Field>
+        <Field Name="EndTime_ProdOrderRtngLine">
+          <DataField>EndTime_ProdOrderRtngLine</DataField>
+        </Field>
+        <Field Name="EndDate_ProdOrderRtngLine">
+          <DataField>EndDate_ProdOrderRtngLine</DataField>
+        </Field>
+        <Field Name="ExpCapNd_ProdOrderRtngLine">
+          <DataField>ExpCapNd_ProdOrderRtngLine</DataField>
+        </Field>
+        <Field Name="ExpCapNd_ProdOrderRtngLineFormat">
+          <DataField>ExpCapNd_ProdOrderRtngLineFormat</DataField>
+        </Field>
+        <Field Name="Desc_ProdOrder">
+          <DataField>Desc_ProdOrder</DataField>
+        </Field>
+        <Field Name="SourceNo_ProdOrder">
+          <DataField>SourceNo_ProdOrder</DataField>
+        </Field>
+        <Field Name="ProdOrdrRtngLineRTUOMCode">
+          <DataField>ProdOrdrRtngLineRTUOMCode</DataField>
+        </Field>
+        <Field Name="PrdOrdNo_ProdOrderRtngLine">
+          <DataField>PrdOrdNo_ProdOrderRtngLine</DataField>
+        </Field>
+        <Field Name="ProdOrderRtngLnStrtDtCapt">
+          <DataField>ProdOrderRtngLnStrtDtCapt</DataField>
+        </Field>
+        <Field Name="ProdOrdRtngLnEndDatCapt">
+          <DataField>ProdOrdRtngLnEndDatCapt</DataField>
+        </Field>
+        <Field Name="ProdOrdRtngLnExpcCapNdCpt">
+          <DataField>ProdOrdRtngLnExpcCapNdCpt</DataField>
+        </Field>
+        <Field Name="PrecalcTimesCaption">
+          <DataField>PrecalcTimesCaption</DataField>
+        </Field>
+        <Field Name="ProdOrderSourceNoCapt">
+          <DataField>ProdOrderSourceNoCapt</DataField>
+        </Field>
+        <Field Name="OutputCaption">
+          <DataField>OutputCaption</DataField>
+        </Field>
+        <Field Name="ScrapCaption">
+          <DataField>ScrapCaption</DataField>
+        </Field>
+        <Field Name="DateCaption">
+          <DataField>DateCaption</DataField>
+        </Field>
+        <Field Name="ByCaption">
+          <DataField>ByCaption</DataField>
+        </Field>
+        <Field Name="EmptyStringCaption">
+          <DataField>EmptyStringCaption</DataField>
+        </Field>
+        <Field Name="Position_ProdOrderComp">
+          <DataField>Position_ProdOrderComp</DataField>
+        </Field>
+        <Field Name="Position2_ProdOrderComp">
+          <DataField>Position2_ProdOrderComp</DataField>
+        </Field>
+        <Field Name="LdTimOffset_ProdOrderComp">
+          <DataField>LdTimOffset_ProdOrderComp</DataField>
+        </Field>
+        <Field Name="ExpectedQty_ProdOrderComp">
+          <DataField>ExpectedQty_ProdOrderComp</DataField>
+        </Field>
+        <Field Name="ExpectedQty_ProdOrderCompFormat">
+          <DataField>ExpectedQty_ProdOrderCompFormat</DataField>
+        </Field>
+        <Field Name="ItemNo_ProdOrderComp">
+          <DataField>ItemNo_ProdOrderComp</DataField>
+        </Field>
+        <Field Name="OrderNo_ProdOrderComp">
+          <DataField>OrderNo_ProdOrderComp</DataField>
+        </Field>
+        <Field Name="MaterialRequirementsCapt">
+          <DataField>MaterialRequirementsCapt</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
 </Report>
