@@ -27,7 +27,7 @@ report 50000 "Cmtl Prod. Order - Job Card"
             {
 
             }
-            column(Site_No_; "Site No.")
+            column(Site_No_; "Site")
             {
             }
             column(Shelter_Id; "Shelter Id")

@@ -6,7 +6,7 @@ tableextension 50000 "CmtlProdOrderExt" extends "Production Order"
         {
             DataClassification = ToBeClassified;
         }
-        field(50001; "Site No."; Code[20])
+        field(50001; "Site"; Text[30])
         {
             DataClassification = ToBeClassified;
         }

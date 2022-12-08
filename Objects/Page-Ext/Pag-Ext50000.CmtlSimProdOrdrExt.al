@@ -10,7 +10,7 @@ pageextension 50000 "CmtlSimProdOrdrExt" extends "Simulated Production Order"
                 Importance = Promoted;
                 ToolTip = 'Specifies the Project No. of the production order.';
             }
-            field("Site No."; Rec."Site No.")
+            field("Site"; Rec."Site")
             {
                 ApplicationArea = Manufacturing;
                 Importance = Promoted;
@@ -34,7 +34,6 @@ pageextension 50000 "CmtlSimProdOrdrExt" extends "Simulated Production Order"
                 Importance = Promoted;
                 ToolTip = 'Specifies the RSS No. of the production order.';
             }
-
         }
     }
 
