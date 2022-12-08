@@ -37,10 +37,6 @@ pageextension 50000 "CmtlSimProdOrdrExt" extends "Simulated Production Order"
         }
     }
 
-    actions
-    {
-        // Add changes to page actions here
-    }
 
     var
         myInt: Integer;

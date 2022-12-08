@@ -5369,7 +5369,7 @@
       <Width>17.94991cm</Width>
       <Page>
         <PageHeader>
-          <Height>2.98133cm</Height>
+          <Height>2.61091cm</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
@@ -5390,7 +5390,7 @@
                   <Style />
                 </Paragraph>
               </Paragraphs>
-              <Top>0.61458in</Top>
+              <Top>0.45208in</Top>
               <Height>0.72639cm</Height>
               <Width>7.5cm</Width>
               <Style>
@@ -5413,7 +5413,7 @@
                   <Style />
                 </Paragraph>
               </Paragraphs>
-              <Top>2.35446cm</Top>
+              <Top>1.94171cm</Top>
               <Height>11.75pt</Height>
               <Width>7.5cm</Width>
               <ZIndex>1</ZIndex>
@@ -5440,7 +5440,7 @@
                   </Style>
                 </Paragraph>
               </Paragraphs>
-              <Top>0.63542in</Top>
+              <Top>0.47292in</Top>
               <Left>14.37083cm</Left>
               <Height>11pt</Height>
               <Width>3.57907cm</Width>
@@ -5468,7 +5468,7 @@
                   </Style>
                 </Paragraph>
               </Paragraphs>
-              <Top>2.45996cm</Top>
+              <Top>2.04721cm</Top>
               <Left>14.37083cm</Left>
               <Height>11pt</Height>
               <Width>3.57907cm</Width>
@@ -5499,7 +5499,7 @@
                   </Style>
                 </Paragraph>
               </Paragraphs>
-              <Top>2.03696cm</Top>
+              <Top>1.62421cm</Top>
               <Left>14.37083cm</Left>
               <Height>11pt</Height>
               <Width>3.57907cm</Width>
@@ -5518,9 +5518,9 @@
               <MIMEType>image/jpeg</MIMEType>
               <Sizing>Fit</Sizing>
               <Top>0cm</Top>
-              <Left>14.14803cm</Left>
-              <Height>1.5434cm</Height>
-              <Width>3.80187cm</Width>
+              <Left>13.46803cm</Left>
+              <Height>1.12007cm</Height>
+              <Width>4.48187cm</Width>
               <ZIndex>5</ZIndex>
               <Style>
                 <Border>
