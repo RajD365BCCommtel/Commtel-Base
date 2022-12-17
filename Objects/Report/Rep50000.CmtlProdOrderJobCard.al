@@ -139,6 +139,12 @@ report 50000 "Cmtl Prod. Order - Job Card"
                 column(ByCaption; ByCaptionLbl)
                 {
                 }
+                column(QCCaption; QCCaptionLbl)
+                {
+                }
+                column(ActualTimeCaption; ActualTimeCaptionLbl)
+                {
+                }
                 column(EmptyStringCaption; EmptyStringCaptionLbl)
                 {
                 }
@@ -162,7 +168,23 @@ report 50000 "Cmtl Prod. Order - Job Card"
                     {
                         IncludeCaption = true;
                     }
+                    column(RemainingQty_ProdOrderComp; "Remaining Quantity")
+                    {
+                        IncludeCaption = true;
+                    }
+                    column(ReservedQty_ProdOrderComp; "Reserved Quantity")
+                    {
+                        IncludeCaption = true;
+                    }
+                    column(Qty_ProdOrderComp; Quantity)
+                    {
+                        IncludeCaption = true;
+                    }
                     column(ItemNo_ProdOrderComp; "Item No.")
+                    {
+                        IncludeCaption = true;
+                    }
+                    column(Description_ProdOrderComp; Description)
                     {
                         IncludeCaption = true;
                     }
@@ -239,7 +261,9 @@ report 50000 "Cmtl Prod. Order - Job Card"
         OutputCaptionLbl: Label 'Output';
         ScrapCaptionLbl: Label 'Scrap';
         DateCaptionLbl: Label 'Date';
-        ByCaptionLbl: Label 'By';
+        ByCaptionLbl: Label 'Completed By';
+        QCCaptionLbl: Label 'QC Completed';
+        ActualTimeCaptionLbl: Label 'Actual Time Taken';
         EmptyStringCaptionLbl: Label '___________';
         MaterialRequirementsCaptLbl: Label 'Material Requirements';
 }

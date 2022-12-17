@@ -34,7 +34,6 @@ pageextension 50004 "CmtlReleaseProdOrdrsExt" extends "Released Production Order
                 Importance = Promoted;
                 ToolTip = 'Specifies the RSS No. of the production order.';
             }
-
         }
     }
 

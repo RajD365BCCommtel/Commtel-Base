@@ -22,18 +22,18 @@ tableextension 50000 "CmtlProdOrderExt" extends "Production Order"
         {
             DataClassification = ToBeClassified;
         }
+
         field(50005; "Parent Prod Order No."; Code[20])
         {
             Caption = 'Parent Prod Order No';
-            TableRelation = "Production Order";
+            TableRelation = "Production Order"."No.";
 
             trigger OnValidate()
             var
                 ProductionOrder: Record "Production Order";
-                ItemAttributeManagement: Codeunit "Item Attribute Management";
                 ParentProdOrderNo: Code[20];
             begin
-                ParentProdOrderNo := "Parent Prod Order No.";
+                ParentProdOrderNo := Rec."Parent Prod Order No.";
                 while ProductionOrder.Get(ProductionOrder.Status::Released, ParentProdOrderNo) do begin
                     if ProductionOrder."No." = Rec."No." then
                         Error(CyclicInheritanceErr);
@@ -108,7 +108,7 @@ tableextension 50000 "CmtlProdOrderExt" extends "Production Order"
             exit('Strong');
 
         if HasChildren() then
-            exit('Strong');
+            exit('Attention');
 
         exit('');
     end;

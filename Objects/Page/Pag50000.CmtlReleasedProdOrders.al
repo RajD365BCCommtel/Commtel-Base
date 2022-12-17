@@ -5,8 +5,10 @@ page 50000 "Cmtl Released Prod Orders"
     CardPageID = "Released Production Order";
     Editable = false;
     PageType = List;
+    RefreshOnActivate = true;
+    ShowFilter = false;
     SourceTable = "Production Order";
-    SourceTableView = WHERE(Status = CONST(Released));
+    SourceTableView = sorting("Presentation Order") WHERE(Status = CONST(Released));
     UsageCategory = Lists;
 
     layout
@@ -15,10 +17,14 @@ page 50000 "Cmtl Released Prod Orders"
         {
             repeater(Control1)
             {
+                IndentationColumn = Rec.Indentation;
+                IndentationControls = "No.";
+                ShowAsTree = true;
                 ShowCaption = false;
                 field("No."; Rec."No.")
                 {
                     ApplicationArea = Manufacturing;
+                    StyleExpr = StyleTxt;
                     Lookup = false;
                     ToolTip = 'Specifies the number of the involved entry or record, according to the specified number series.';
                 }
@@ -451,7 +457,8 @@ page 50000 "Cmtl Released Prod Orders"
 #if not CLEAN17
     trigger OnAfterGetRecord()
     begin
-        GetStartingEndingDateAndTime(StartingTime, StartingDate, EndingTime, EndingDate);
+        //GetStartingEndingDateAndTime(StartingTime, StartingDate, EndingTime, EndingDate);
+        StyleTxt := rec.GetStyleText();
     end;
 
     trigger OnInit()
@@ -462,10 +469,42 @@ page 50000 "Cmtl Released Prod Orders"
     trigger OnOpenPage()
     begin
         DateAndTimeFieldVisible := false;
+        //ProdOrdrMgt.CheckPresentationOrder();
     end;
 #endif
 
+    trigger OnAfterGetCurrRecord()
+    begin
+        StyleTxt := Rec.GetStyleText();
+    end;
+
+    trigger OnDeleteRecord(): Boolean
+    begin
+        StyleTxt := Rec.GetStyleText();
+    end;
+
+    trigger OnInsertRecord(BelowxRec: Boolean): Boolean
+    begin
+        StyleTxt := Rec.GetStyleText();
+    end;
+
+
+    // procedure GetSelectionFilter(): Text
+    // var
+    //     ProdOrder: Record "Production Order";
+    //     SelectionFilterManagement: Codeunit SelectionFilterManagement;
+    // begin
+    //     CurrPage.SetSelectionFilter(ItemCategory);
+    //     exit(SelectionFilterManagement.GetSelectionFilterForItemCategory(ItemCategory));
+    // end;
+
+    // procedure SetSelection(var ProdOrder: Record "Production Order";)
+    // begin
+    //     CurrPage.SetSelectionFilter(ItemCategory);
+    // end;
+
     var
+        ProdOrdrMgt: Codeunit "Cmtl Prod. Ordr Mgt";
         ManuPrintReport: Codeunit "Manu. Print Report";
 #if not CLEAN17
         StartingTime: Time;
@@ -473,6 +512,7 @@ page 50000 "Cmtl Released Prod Orders"
         StartingDate: Date;
         EndingDate: Date;
         DateAndTimeFieldVisible: Boolean;
+        StyleTxt: Text;
 #endif
 }
 

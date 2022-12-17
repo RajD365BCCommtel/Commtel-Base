@@ -18,31 +18,31 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>2cm</Width>
+                  <Width>2.3175cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.5cm</Width>
+                  <Width>0.23cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.69375cm</Width>
+                  <Width>2.98479cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>4.50616cm</Width>
+                  <Width>4.87656cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.31082cm</Width>
+                  <Width>1.82646cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.48918cm</Width>
+                  <Width>0.07938cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.96812cm</Width>
+                  <Width>1.84125cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.83187cm</Width>
+                  <Width>2.03812cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.65001cm</Width>
+                  <Width>1.75585cm</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -343,6 +343,8 @@
                     <TablixCell>
                       <CellContents>
                         <Textbox Name="ProdOrderRtngLineNo">
+                          <CanGrow>true</CanGrow>
+                          <CanShrink>true</CanShrink>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
@@ -373,6 +375,8 @@
                     <TablixCell>
                       <CellContents>
                         <Textbox Name="textbox45">
+                          <CanGrow>true</CanGrow>
+                          <CanShrink>true</CanShrink>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
@@ -506,6 +510,8 @@
                     <TablixCell>
                       <CellContents>
                         <Textbox Name="ProdOrderRtngLineRtngNo">
+                          <CanGrow>true</CanGrow>
+                          <CanShrink>true</CanShrink>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
@@ -641,6 +647,8 @@
                     <TablixCell>
                       <CellContents>
                         <Textbox Name="ProdOrderSourceNo">
+                          <CanGrow>true</CanGrow>
+                          <CanShrink>true</CanShrink>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
@@ -2005,7 +2013,6 @@
                           </Paragraphs>
                           <rd:DefaultName>Textbox252</rd:DefaultName>
                           <Style>
-                            <PaddingLeft>5pt</PaddingLeft>
                             <PaddingRight>5pt</PaddingRight>
                           </Style>
                         </Textbox>
@@ -2212,7 +2219,6 @@
                           </Paragraphs>
                           <rd:DefaultName>Textbox261</rd:DefaultName>
                           <Style>
-                            <PaddingLeft>5pt</PaddingLeft>
                             <PaddingRight>5pt</PaddingRight>
                           </Style>
                         </Textbox>
@@ -2419,7 +2425,6 @@
                           </Paragraphs>
                           <rd:DefaultName>Textbox270</rd:DefaultName>
                           <Style>
-                            <PaddingLeft>5pt</PaddingLeft>
                             <PaddingRight>5pt</PaddingRight>
                           </Style>
                         </Textbox>
@@ -2626,7 +2631,6 @@
                           </Paragraphs>
                           <rd:DefaultName>Textbox279</rd:DefaultName>
                           <Style>
-                            <PaddingLeft>5pt</PaddingLeft>
                             <PaddingRight>5pt</PaddingRight>
                           </Style>
                         </Textbox>
@@ -2833,7 +2837,6 @@
                           </Paragraphs>
                           <rd:DefaultName>Textbox306</rd:DefaultName>
                           <Style>
-                            <PaddingLeft>5pt</PaddingLeft>
                             <PaddingRight>5pt</PaddingRight>
                           </Style>
                         </Textbox>
@@ -3077,14 +3080,14 @@
                     <TablixCell />
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="OutputCaption">
+                        <Textbox Name="Textbox18">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!OutputCaption.Value</Value>
+                                  <Value />
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>8pt</FontSize>
@@ -3097,7 +3100,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <ZIndex>114</ZIndex>
+                          <rd:DefaultName>Textbox18</rd:DefaultName>
                           <Style>
                             <Border />
                             <PaddingLeft>5pt</PaddingLeft>
@@ -3471,14 +3474,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="OutputCaption1">
+                        <Textbox Name="ActualTimeCaption">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!OutputCaption.Value</Value>
+                                  <Value>=Fields!ActualTimeCaption.Value</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>8pt</FontSize>
@@ -3491,7 +3494,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <ZIndex>93</ZIndex>
+                          <rd:DefaultName>ActualTimeCaption</rd:DefaultName>
                           <Style>
                             <Border />
                             <PaddingLeft>5pt</PaddingLeft>
@@ -3504,14 +3507,14 @@
                     <TablixCell />
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="ScrapCaption">
+                        <Textbox Name="Textbox24">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!ScrapCaption.Value</Value>
+                                  <Value>=Fields!DateCaption.Value</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>8pt</FontSize>
@@ -3524,7 +3527,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <ZIndex>92</ZIndex>
+                          <rd:DefaultName>Textbox24</rd:DefaultName>
                           <Style>
                             <Border />
                             <PaddingLeft>5pt</PaddingLeft>
@@ -3542,7 +3545,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!DateCaption.Value</Value>
+                                  <Value>=Fields!ByCaption.Value</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>8pt</FontSize>
@@ -3573,7 +3576,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!ByCaption.Value</Value>
+                                  <Value>=Fields!QCCaption.Value</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>8pt</FontSize>
@@ -4214,7 +4217,7 @@
                   </TablixCells>
                 </TablixRow>
                 <TablixRow>
-                  <Height>0.35278cm</Height>
+                  <Height>0.67028cm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -4225,7 +4228,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Parameters!Position_ProdOrderCompCaption.Value</Value>
+                                  <Value>=Parameters!ItemNo_ProdOrderCompCaption.Value</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>8pt</FontSize>
@@ -4254,7 +4257,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Parameters!Position2_ProdOrderCompCaption.Value</Value>
+                                  <Value>=Parameters!LdTimOffset_ProdOrderCompCaption.Value</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>8pt</FontSize>
@@ -4286,7 +4289,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Parameters!LdTimOffset_ProdOrderCompCaption.Value</Value>
+                                  <Value>=Parameters!Description_ProdOrderCompCaption.Value</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>8pt</FontSize>
@@ -4307,10 +4310,41 @@
                             <PaddingRight>5pt</PaddingRight>
                           </Style>
                         </Textbox>
-                        <ColSpan>4</ColSpan>
                       </CellContents>
                     </TablixCell>
-                    <TablixCell />
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox3">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Actual Qty.</Value>
+                                  <Style>
+                                    <FontFamily>Segoe UI</FontFamily>
+                                    <FontSize>8pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Left</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox3</rd:DefaultName>
+                          <Style>
+                            <Border />
+                            <VerticalAlign>Bottom</VerticalAlign>
+                            <PaddingLeft>5pt</PaddingLeft>
+                            <PaddingRight>5pt</PaddingRight>
+                          </Style>
+                        </Textbox>
+                        <ColSpan>3</ColSpan>
+                      </CellContents>
+                    </TablixCell>
                     <TablixCell />
                     <TablixCell />
                     <TablixCell>
@@ -4322,7 +4356,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Parameters!ItemNo_ProdOrderCompCaption.Value</Value>
+                                  <Value>Consumed Qty.</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>8pt</FontSize>
@@ -4341,39 +4375,10 @@
                             <PaddingRight>5pt</PaddingRight>
                           </Style>
                         </Textbox>
+                        <ColSpan>2</ColSpan>
                       </CellContents>
                     </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="ProdOrderCompExpectedQtyCapt">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=Parameters!ExpectedQty_ProdOrderCompCaption.Value</Value>
-                                  <Style>
-                                    <FontFamily>Segoe UI</FontFamily>
-                                    <FontSize>8pt</FontSize>
-                                    <FontWeight>Bold</FontWeight>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <TextAlign>Right</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <ZIndex>25</ZIndex>
-                          <Style>
-                            <Border />
-                            <VerticalAlign>Bottom</VerticalAlign>
-                            <PaddingLeft>5pt</PaddingLeft>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
+                    <TablixCell />
                   </TablixCells>
                 </TablixRow>
                 <TablixRow>
@@ -4977,17 +4982,19 @@
                   </TablixCells>
                 </TablixRow>
                 <TablixRow>
-                  <Height>0.35278cm</Height>
+                  <Height>0.48507cm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
                         <Textbox Name="ProdOrderCompPosition">
+                          <CanGrow>true</CanGrow>
+                          <CanShrink>true</CanShrink>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!Position_ProdOrderComp.Value</Value>
+                                  <Value>=Fields!ItemNo_ProdOrderComp.Value</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>8pt</FontSize>
@@ -5011,12 +5018,14 @@
                     <TablixCell>
                       <CellContents>
                         <Textbox Name="ProdOrderCompPosition2">
+                          <CanGrow>true</CanGrow>
+                          <CanShrink>true</CanShrink>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!Position2_ProdOrderComp.Value</Value>
+                                  <Value>=Fields!LdTimOffset_ProdOrderComp.Value</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>8pt</FontSize>
@@ -5043,12 +5052,14 @@
                     <TablixCell>
                       <CellContents>
                         <Textbox Name="ProdOrderCompLeadTimeOffset">
+                          <CanGrow>true</CanGrow>
+                          <CanShrink>true</CanShrink>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!LdTimOffset_ProdOrderComp.Value</Value>
+                                  <Value>=Fields!Description_ProdOrderComp.Value</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>8pt</FontSize>
@@ -5068,21 +5079,55 @@
                             <PaddingRight>5pt</PaddingRight>
                           </Style>
                         </Textbox>
-                        <ColSpan>4</ColSpan>
                       </CellContents>
                     </TablixCell>
-                    <TablixCell />
-                    <TablixCell />
-                    <TablixCell />
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="ProdOrderCompItemNo">
+                        <Textbox Name="Qty_ProdOrderComp">
+                          <CanGrow>true</CanGrow>
+                          <CanShrink>true</CanShrink>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!ItemNo_ProdOrderComp.Value</Value>
+                                  <Value>=Fields!Qty_ProdOrderComp.Value</Value>
+                                  <Style>
+                                    <FontFamily>Segoe UI</FontFamily>
+                                    <FontSize>8pt</FontSize>
+                                    <Format>=Fields!ExpectedQty_ProdOrderCompFormat.Value</Format>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Left</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Qty_ProdOrderComp</rd:DefaultName>
+                          <Style>
+                            <BackgroundColor>=IIF(RowNumber(Nothing) Mod 2, "#efefef","White")</BackgroundColor>
+                            <VerticalAlign>Top</VerticalAlign>
+                            <PaddingLeft>5pt</PaddingLeft>
+                            <PaddingRight>5pt</PaddingRight>
+                          </Style>
+                        </Textbox>
+                        <ColSpan>3</ColSpan>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell />
+                    <TablixCell />
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="ProdOrderCompItemNo">
+                          <CanGrow>true</CanGrow>
+                          <CanShrink>true</CanShrink>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value />
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>8pt</FontSize>
@@ -5106,18 +5151,18 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="ProdOrderCompExpectedQty">
+                        <Textbox Name="ReservedQty_ProdOrderComp">
                           <CanGrow>true</CanGrow>
+                          <CanShrink>true</CanShrink>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!ExpectedQty_ProdOrderComp.Value</Value>
+                                  <Value />
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>8pt</FontSize>
-                                    <Format>=Fields!ExpectedQty_ProdOrderCompFormat.Value</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -5126,7 +5171,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <ZIndex>4</ZIndex>
+                          <rd:DefaultName>ReservedQty_ProdOrderComp</rd:DefaultName>
                           <Style>
                             <BackgroundColor>=IIF(RowNumber(Nothing) Mod 2, "#efefef","White")</BackgroundColor>
                             <VerticalAlign>Top</VerticalAlign>
@@ -5358,12 +5403,12 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>DataSet_Result</DataSetName>
-            <Height>8.51961cm</Height>
+            <Height>8.9694cm</Height>
             <Width>17.94991cm</Width>
             <Style />
           </Tablix>
         </ReportItems>
-        <Height>8.80293cm</Height>
+        <Height>8.9694cm</Height>
         <Style />
       </Body>
       <Width>17.94991cm</Width>
@@ -5440,7 +5485,7 @@
                   </Style>
                 </Paragraph>
               </Paragraphs>
-              <Top>0.47292in</Top>
+              <Top>0.48542in</Top>
               <Left>14.37083cm</Left>
               <Height>11pt</Height>
               <Width>3.57907cm</Width>
@@ -5468,7 +5513,7 @@
                   </Style>
                 </Paragraph>
               </Paragraphs>
-              <Top>2.04721cm</Top>
+              <Top>2.07896cm</Top>
               <Left>14.37083cm</Left>
               <Height>11pt</Height>
               <Width>3.57907cm</Width>
@@ -5499,7 +5544,7 @@
                   </Style>
                 </Paragraph>
               </Paragraphs>
-              <Top>1.62421cm</Top>
+              <Top>1.65596cm</Top>
               <Left>14.37083cm</Left>
               <Height>11pt</Height>
               <Width>3.57907cm</Width>
@@ -5517,10 +5562,10 @@
               <Value>=First(Fields!Picture_CompanyInfo.Value, "DataSet_Result")</Value>
               <MIMEType>image/jpeg</MIMEType>
               <Sizing>Fit</Sizing>
-              <Top>0cm</Top>
-              <Left>13.46803cm</Left>
-              <Height>1.12007cm</Height>
-              <Width>4.48187cm</Width>
+              <Top>0.23283cm</Top>
+              <Left>14.37083cm</Left>
+              <Height>0.85549cm</Height>
+              <Width>3.57907cm</Width>
               <ZIndex>5</ZIndex>
               <Style>
                 <Border>
@@ -5643,6 +5688,33 @@
       </DefaultValue>
       <Prompt>ExpectedQty_ProdOrderCompCaption</Prompt>
     </ReportParameter>
+    <ReportParameter Name="RemainingQty_ProdOrderCompCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>RemainingQty_ProdOrderCompCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>RemainingQty_ProdOrderCompCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="ReservedQty_ProdOrderCompCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>ReservedQty_ProdOrderCompCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>ReservedQty_ProdOrderCompCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Qty_ProdOrderCompCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Qty_ProdOrderCompCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Qty_ProdOrderCompCaption</Prompt>
+    </ReportParameter>
     <ReportParameter Name="ItemNo_ProdOrderCompCaption">
       <DataType>String</DataType>
       <DefaultValue>
@@ -5652,11 +5724,20 @@
       </DefaultValue>
       <Prompt>ItemNo_ProdOrderCompCaption</Prompt>
     </ReportParameter>
+    <ReportParameter Name="Description_ProdOrderCompCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Description_ProdOrderCompCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Description_ProdOrderCompCaption</Prompt>
+    </ReportParameter>
   </ReportParameters>
   <ReportParametersLayout>
     <GridLayoutDefinition>
       <NumberOfColumns>1</NumberOfColumns>
-      <NumberOfRows>12</NumberOfRows>
+      <NumberOfRows>16</NumberOfRows>
       <CellDefinitions>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
@@ -5716,7 +5797,27 @@
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>11</RowIndex>
+          <ParameterName>RemainingQty_ProdOrderCompCaption</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>12</RowIndex>
+          <ParameterName>ReservedQty_ProdOrderCompCaption</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>13</RowIndex>
+          <ParameterName>Qty_ProdOrderCompCaption</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>14</RowIndex>
           <ParameterName>ItemNo_ProdOrderCompCaption</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>15</RowIndex>
+          <ParameterName>Description_ProdOrderCompCaption</ParameterName>
         </CellDefinition>
       </CellDefinitions>
     </GridLayoutDefinition>
@@ -5874,6 +5975,12 @@ End Function
         <Field Name="ByCaption">
           <DataField>ByCaption</DataField>
         </Field>
+        <Field Name="QCCaption">
+          <DataField>QCCaption</DataField>
+        </Field>
+        <Field Name="ActualTimeCaption">
+          <DataField>ActualTimeCaption</DataField>
+        </Field>
         <Field Name="EmptyStringCaption">
           <DataField>EmptyStringCaption</DataField>
         </Field>
@@ -5892,8 +5999,29 @@ End Function
         <Field Name="ExpectedQty_ProdOrderCompFormat">
           <DataField>ExpectedQty_ProdOrderCompFormat</DataField>
         </Field>
+        <Field Name="RemainingQty_ProdOrderComp">
+          <DataField>RemainingQty_ProdOrderComp</DataField>
+        </Field>
+        <Field Name="RemainingQty_ProdOrderCompFormat">
+          <DataField>RemainingQty_ProdOrderCompFormat</DataField>
+        </Field>
+        <Field Name="ReservedQty_ProdOrderComp">
+          <DataField>ReservedQty_ProdOrderComp</DataField>
+        </Field>
+        <Field Name="ReservedQty_ProdOrderCompFormat">
+          <DataField>ReservedQty_ProdOrderCompFormat</DataField>
+        </Field>
+        <Field Name="Qty_ProdOrderComp">
+          <DataField>Qty_ProdOrderComp</DataField>
+        </Field>
+        <Field Name="Qty_ProdOrderCompFormat">
+          <DataField>Qty_ProdOrderCompFormat</DataField>
+        </Field>
         <Field Name="ItemNo_ProdOrderComp">
           <DataField>ItemNo_ProdOrderComp</DataField>
+        </Field>
+        <Field Name="Description_ProdOrderComp">
+          <DataField>Description_ProdOrderComp</DataField>
         </Field>
         <Field Name="OrderNo_ProdOrderComp">
           <DataField>OrderNo_ProdOrderComp</DataField>

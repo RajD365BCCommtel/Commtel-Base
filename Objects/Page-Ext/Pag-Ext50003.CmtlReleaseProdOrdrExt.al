@@ -4,6 +4,12 @@ pageextension 50003 "CmtlReleaseProdOrdrExt" extends "Released Production Order"
     {
         addafter(Quantity)
         {
+            field("Parent Prod Order No."; Rec."Parent Prod Order No.")
+            {
+                ApplicationArea = Manufacturing;
+                Importance = Promoted;
+                ToolTip = 'Specifies the Parent Prod Order No. of the production order.';
+            }
             field("Project No."; Rec."Project No.")
             {
                 ApplicationArea = Manufacturing;
@@ -34,7 +40,6 @@ pageextension 50003 "CmtlReleaseProdOrdrExt" extends "Released Production Order"
                 Importance = Promoted;
                 ToolTip = 'Specifies the RSS No. of the production order.';
             }
-
         }
     }
 

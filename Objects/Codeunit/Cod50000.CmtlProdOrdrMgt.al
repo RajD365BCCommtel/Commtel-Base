@@ -17,9 +17,10 @@ codeunit 50000 "Cmtl Prod. Ordr Mgt"
         TempProdOrder.DeleteAll();
 
         // This is to cleanup wrong created blank entries created by an import mistake
-        if TempProdOrder.Get('') then
+        if TempProdOrder.Get(TempProdOrder.Status::Released, '') then
             TempProdOrder.Delete();
 
+        ProdOrder.SetRange(Status, ProdOrder.Status::Released);
         if ProdOrder.FindSet(false, false) then
             repeat
                 TempProdOrder.TransferFields(ProdOrder);
@@ -44,6 +45,7 @@ codeunit 50000 "Cmtl Prod. Ordr Mgt"
 
         TempProdOrder.SetCurrentKey("Parent Prod Order No.");
         TempProdOrder.Ascending(false);
+        TempProdOrder.SetRange(Status, TempProdOrder.Status::Released);
         TempProdOrder.SetRange("Parent Prod Order No.", '');
         if TempProdOrder.FindSet(false, false) then
             repeat
@@ -54,6 +56,7 @@ codeunit 50000 "Cmtl Prod. Ordr Mgt"
             TempCurProdOrder.Get(CurProdOrderID);
             HasChildren := false;
 
+            TempProdOrder.SetRange(Status, TempProdOrder.Status::Released);
             TempProdOrder.SetRange("Parent Prod Order No.", TempCurProdOrder."No.");
             if TempProdOrder.FindSet(false, false) then
                 repeat
@@ -106,20 +109,23 @@ codeunit 50000 "Cmtl Prod. Ordr Mgt"
                 exit;
             end;
 
+            ProdOrderPrev.SetRange(Status, ProdOrderPrev.Status::Released);
             ProdOrderPrev.SetRange("Parent Prod Order No.", "Parent Prod Order No.");
             ProdOrderPrev.SetFilter("No.", '<%1', "No.");
             ProdOrderPrevExists := ProdOrderPrev.FindLast();
             if not ProdOrderPrevExists then
-                ProdOrderPrevExists := ProdOrderPrev.Get("Parent Prod Order No.")
+                ProdOrderPrevExists := ProdOrderPrev.Get(ProdOrderPrev.Status::Released, "Parent Prod Order No.")
             else
-                ProdOrderPrev.Get(GetLastChildCode(ProdOrderPrev."No."));
+                ProdOrderPrev.Get(ProdOrderPrev.Status::Released, GetLastChildCode(ProdOrderPrev."No."));
 
+            ProdOrderNext.SetRange(Status, ProdOrderNext.Status::Released);
             ProdOrderNext.SetRange("Parent Prod Order No.", "Parent Prod Order No.");
             ProdOrderNext.SetFilter("No.", '>%1', "No.");
             ProdOrderNextExists := ProdOrderNext.FindFirst();
             if not ProdOrderNextExists and ProdOrderPrevExists then begin
                 ProdOrderNext.Reset();
                 ProdOrderNext.SetCurrentKey("Presentation Order");
+                ProdOrderNext.SetRange(Status, ProdOrderNext.Status::Released);
                 ProdOrderNext.SetFilter("No.", '<>%1', "No.");
                 ProdOrderNext.SetFilter("Presentation Order", '>%1', ProdOrderPrev."Presentation Order");
                 ProdOrderNextExists := ProdOrderNext.FindFirst();
@@ -136,6 +142,7 @@ codeunit 50000 "Cmtl Prod. Ordr Mgt"
                     "Presentation Order" := (ProdOrderPrev."Presentation Order" + ProdOrderNext."Presentation Order") div 2;
             end;
 
+            ProdOrderSearch.SetRange(Status, ProdOrderSearch.Status::Released);
             ProdOrderSearch.SetRange("Presentation Order", "Presentation Order");
             ProdOrderSearch.SetFilter("No.", '<>%1', "No.");
             if not ProdOrderSearch.IsEmpty() then
@@ -161,6 +168,7 @@ codeunit 50000 "Cmtl Prod. Ordr Mgt"
         ChildCode := ParentCode;
 
         ProdOrder.Ascending(false);
+        ProdOrder.SetRange(Status, ProdOrder.Status::Released);
         ProdOrder.SetRange("Parent Prod Order No.", ParentCode);
         if ProdOrder.FindSet() then
             repeat
@@ -171,6 +179,7 @@ codeunit 50000 "Cmtl Prod. Ordr Mgt"
             ProdOrder.Get(RecId);
             ChildCode := ProdOrder."No.";
 
+            ProdOrder.SetRange(Status, ProdOrder.Status::Released);
             ProdOrder.SetRange("Parent Prod Order No.", ProdOrder."No.");
             if ProdOrder.FindSet() then
                 repeat
