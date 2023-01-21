@@ -1,4 +1,6 @@
+#pragma warning disable AA0215
 report 50000 "Cmtl Prod. Order - Job Card"
+#pragma warning restore AA0215
 {
     DefaultLayout = RDLC;
     RDLCLayout = './Layout/CmtlProdOrderJobCard.rdlc';

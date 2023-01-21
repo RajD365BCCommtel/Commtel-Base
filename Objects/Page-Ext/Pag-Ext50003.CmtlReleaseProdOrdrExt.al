@@ -1,4 +1,6 @@
+#pragma warning disable AA0215
 pageextension 50003 "CmtlReleaseProdOrdrExt" extends "Released Production Order"
+#pragma warning restore AA0215
 {
     layout
     {
@@ -40,15 +42,21 @@ pageextension 50003 "CmtlReleaseProdOrdrExt" extends "Released Production Order"
                 Importance = Promoted;
                 ToolTip = 'Specifies the RSS No. of the production order.';
             }
+            field("Presentation Order"; Rec."Presentation Order")
+            {
+                ApplicationArea = All;
+                Importance = Promoted;
+                ToolTip = 'Specifies the Presentation Order of the production order.';
+            }
+            field(Indentation; Rec.Indentation)
+            {
+                ApplicationArea = All;
+                Importance = Promoted;
+                ToolTip = 'Specifies the Indentation of the production order.';
+            }
+
         }
-    }
-
-    actions
-    {
 
     }
 
-
-    var
-        myInt: Integer;
 }

@@ -1,4 +1,6 @@
+#pragma warning disable AA0215
 pageextension 50001 "CmtlFinishProdOrdrExt" extends "Finished Production Order"
+#pragma warning restore AA0215
 {
     layout
     {
@@ -37,12 +39,4 @@ pageextension 50001 "CmtlFinishProdOrdrExt" extends "Finished Production Order"
 
         }
     }
-
-    actions
-    {
-        // Add changes to page actions here
-    }
-
-    var
-        myInt: Integer;
 }

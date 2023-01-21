@@ -1,4 +1,6 @@
+#pragma warning disable AA0215
 pageextension 50000 "CmtlSimProdOrdrExt" extends "Simulated Production Order"
+#pragma warning restore AA0215
 {
     layout
     {
@@ -36,8 +38,4 @@ pageextension 50000 "CmtlSimProdOrdrExt" extends "Simulated Production Order"
             }
         }
     }
-
-
-    var
-        myInt: Integer;
 }

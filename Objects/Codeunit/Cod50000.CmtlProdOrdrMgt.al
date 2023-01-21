@@ -1,4 +1,6 @@
+#pragma warning disable AA0215
 codeunit 50000 "Cmtl Prod. Ordr Mgt"
+#pragma warning restore AA0215
 {
     EventSubscriberInstance = Manual;
 
@@ -20,7 +22,7 @@ codeunit 50000 "Cmtl Prod. Ordr Mgt"
         if TempProdOrder.Get(TempProdOrder.Status::Released, '') then
             TempProdOrder.Delete();
 
-        ProdOrder.SetRange(Status, ProdOrder.Status::Released);
+        ProdOrder.Setfilter(Status, '%1|%2', ProdOrder.Status::"Firm Planned", ProdOrder.Status::Released);
         if ProdOrder.FindSet(false, false) then
             repeat
                 TempProdOrder.TransferFields(ProdOrder);
@@ -45,7 +47,7 @@ codeunit 50000 "Cmtl Prod. Ordr Mgt"
 
         TempProdOrder.SetCurrentKey("Parent Prod Order No.");
         TempProdOrder.Ascending(false);
-        TempProdOrder.SetRange(Status, TempProdOrder.Status::Released);
+        TempProdOrder.Setfilter(Status, '%1|%2', TempProdOrder.Status::"Firm Planned", TempProdOrder.Status::Released);
         TempProdOrder.SetRange("Parent Prod Order No.", '');
         if TempProdOrder.FindSet(false, false) then
             repeat
@@ -56,7 +58,7 @@ codeunit 50000 "Cmtl Prod. Ordr Mgt"
             TempCurProdOrder.Get(CurProdOrderID);
             HasChildren := false;
 
-            TempProdOrder.SetRange(Status, TempProdOrder.Status::Released);
+            TempProdOrder.Setfilter(Status, '%1|%2', TempProdOrder.Status::"Firm Planned", TempProdOrder.Status::Released);
             TempProdOrder.SetRange("Parent Prod Order No.", TempCurProdOrder."No.");
             if TempProdOrder.FindSet(false, false) then
                 repeat
@@ -102,30 +104,40 @@ codeunit 50000 "Cmtl Prod. Ordr Mgt"
         ProdOrderNext: Record "Production Order";
         ProdOrderPrevExists: Boolean;
         ProdOrderNextExists: Boolean;
+        lastPresentationOrder: Integer;
     begin
         with ProdOrder do begin
             if HasChildren() then begin
                 "Presentation Order" := 0;
                 exit;
             end;
+            lastPresentationOrder := 0;
+            ProdOrderNext.Reset();
+            ProdOrderNext.SetCurrentKey("Presentation Order");
+            if ProdOrderNext.FindLast() then
+                lastPresentationOrder := ProdOrderNext."Presentation Order";
 
-            ProdOrderPrev.SetRange(Status, ProdOrderPrev.Status::Released);
+
+            //ProdOrderPrev.Setfilter(Status, '%1|%2', ProdOrderPrev.Status::"Firm Planned", ProdOrderPrev.Status::Released);//23/12/2022
+            ProdOrderPrev.SetRange(Status, Status);
             ProdOrderPrev.SetRange("Parent Prod Order No.", "Parent Prod Order No.");
             ProdOrderPrev.SetFilter("No.", '<%1', "No.");
             ProdOrderPrevExists := ProdOrderPrev.FindLast();
             if not ProdOrderPrevExists then
-                ProdOrderPrevExists := ProdOrderPrev.Get(ProdOrderPrev.Status::Released, "Parent Prod Order No.")
+                ProdOrderPrevExists := ProdOrderPrev.Get(ProdOrder.Status, "Parent Prod Order No.")
             else
-                ProdOrderPrev.Get(ProdOrderPrev.Status::Released, GetLastChildCode(ProdOrderPrev."No."));
+                ProdOrderPrev.Get(ProdOrderPrev.Status, GetLastChildCode(ProdOrderPrev."No."));
 
-            ProdOrderNext.SetRange(Status, ProdOrderNext.Status::Released);
+            // //ProdOrderNext.Setfilter(Status, '%1|%2', ProdOrderNext.Status::"Firm Planned", ProdOrderNext.Status::Released);//23/12/2022
+            ProdOrderNext.SetRange(Status, Status);
             ProdOrderNext.SetRange("Parent Prod Order No.", "Parent Prod Order No.");
             ProdOrderNext.SetFilter("No.", '>%1', "No.");
             ProdOrderNextExists := ProdOrderNext.FindFirst();
             if not ProdOrderNextExists and ProdOrderPrevExists then begin
                 ProdOrderNext.Reset();
                 ProdOrderNext.SetCurrentKey("Presentation Order");
-                ProdOrderNext.SetRange(Status, ProdOrderNext.Status::Released);
+                ProdOrderNext.SetRange(Status, Status);
+                //ProdOrderNext.Setfilter(Status, '%1|%2', ProdOrderNext.Status::"Firm Planned", ProdOrderNext.Status::Released);//23/12/2022
                 ProdOrderNext.SetFilter("No.", '<>%1', "No.");
                 ProdOrderNext.SetFilter("Presentation Order", '>%1', ProdOrderPrev."Presentation Order");
                 ProdOrderNextExists := ProdOrderNext.FindFirst();
@@ -133,16 +145,21 @@ codeunit 50000 "Cmtl Prod. Ordr Mgt"
 
             case true of
                 not ProdOrderPrevExists and not ProdOrderNextExists:
-                    "Presentation Order" := 10000;
+                    if lastPresentationOrder = 0 then
+                        "Presentation Order" := 1000
+                    else
+                        "Presentation Order" := lastPresentationOrder + 1000;
                 not ProdOrderPrevExists and ProdOrderNextExists:
                     "Presentation Order" := ProdOrderNext."Presentation Order" div 2;
                 ProdOrderPrevExists and not ProdOrderNextExists:
-                    "Presentation Order" := ProdOrderPrev."Presentation Order" + 10000;
+                    //"Presentation Order" := ProdOrderPrev."Presentation Order" + 1000;
+                    "Presentation Order" := lastPresentationOrder + 1000;
                 ProdOrderPrevExists and ProdOrderNextExists:
                     "Presentation Order" := (ProdOrderPrev."Presentation Order" + ProdOrderNext."Presentation Order") div 2;
             end;
 
-            ProdOrderSearch.SetRange(Status, ProdOrderSearch.Status::Released);
+            ProdOrderSearch.SetRange(Status, Status);
+            //ProdOrderSearch.Setfilter(Status, '%1|%2', ProdOrderSearch.Status::"Firm Planned", ProdOrderSearch.Status::Released);
             ProdOrderSearch.SetRange("Presentation Order", "Presentation Order");
             ProdOrderSearch.SetFilter("No.", '<>%1', "No.");
             if not ProdOrderSearch.IsEmpty() then
@@ -168,7 +185,7 @@ codeunit 50000 "Cmtl Prod. Ordr Mgt"
         ChildCode := ParentCode;
 
         ProdOrder.Ascending(false);
-        ProdOrder.SetRange(Status, ProdOrder.Status::Released);
+        //ProdOrder.Setfilter(Status, '%1|%2', ProdOrder.Status::"Firm Planned", ProdOrder.Status::Released);
         ProdOrder.SetRange("Parent Prod Order No.", ParentCode);
         if ProdOrder.FindSet() then
             repeat
@@ -179,7 +196,8 @@ codeunit 50000 "Cmtl Prod. Ordr Mgt"
             ProdOrder.Get(RecId);
             ChildCode := ProdOrder."No.";
 
-            ProdOrder.SetRange(Status, ProdOrder.Status::Released);
+            //ProdOrder.Setfilter(Status, '%1|%2', ProdOrder.Status::"Firm Planned", ProdOrder.Status::Released);
+            ProdOrder.SetRange(Status, ProdOrder.Status);
             ProdOrder.SetRange("Parent Prod Order No.", ProdOrder."No.");
             if ProdOrder.FindSet() then
                 repeat
