@@ -4,20 +4,20 @@ enum 50000 "Cmtl Purchase Document Type"
 {
     Extensible = true;
     AssignmentCompatibility = true;
-    value(0; "Quote") { Caption = 'Quote'; }
-    value(1; "Blanket Order") { Caption = 'Blanket Order'; }
-    value(2; "Order") { Caption = 'Order'; }
-    value(3; "Invoice") { Caption = 'Invoice'; }
-    value(4; "Return Order") { Caption = 'Return Order'; }
-    value(5; "Credit Memo") { Caption = 'Credit Memo'; }
-    value(6; "Posted Receipt") { Caption = 'Posted Receipt'; }
-    value(7; "Posted Invoice") { Caption = 'Posted Invoice'; }
-    value(8; "Posted Return Shipment") { Caption = 'Posted Return Shipment'; }
-    value(9; "Posted Credit Memo") { Caption = 'Posted Credit Memo'; }
-    value(10; "Arch. Quote") { Caption = 'Arch. Quote'; }
-    value(11; "Arch. Order") { Caption = 'Arch. Order'; }
-    value(12; "Arch. Blanket Order") { Caption = 'Arch. Blanket Order'; }
-    value(13; "Arch. Return Order") { Caption = 'Arch. Return Order'; }
-    value(14; "Requisition") { Caption = 'Requisition'; }
-    value(15; "Arch. Requisition") { Caption = 'Arch. Requisition'; }
+    value(0; "Requisition") { Caption = 'Requisition'; }
+    value(1; "Quote") { Caption = 'Quote'; }
+    value(2; "Blanket Order") { Caption = 'Blanket Order'; }
+    value(3; "Order") { Caption = 'Order'; }
+    value(4; "Invoice") { Caption = 'Invoice'; }
+    value(5; "Return Order") { Caption = 'Return Order'; }
+    value(6; "Credit Memo") { Caption = 'Credit Memo'; }
+    value(7; "Posted Receipt") { Caption = 'Posted Receipt'; }
+    value(8; "Posted Invoice") { Caption = 'Posted Invoice'; }
+    value(9; "Posted Return Shipment") { Caption = 'Posted Return Shipment'; }
+    value(10; "Posted Credit Memo") { Caption = 'Posted Credit Memo'; }
+    value(11; "Arch. Requisition") { Caption = 'Arch. Requisition'; }
+    value(12; "Arch. Quote") { Caption = 'Arch. Quote'; }
+    value(13; "Arch. Order") { Caption = 'Arch. Order'; }
+    value(14; "Arch. Blanket Order") { Caption = 'Arch. Blanket Order'; }
+    value(15; "Arch. Return Order") { Caption = 'Arch. Return Order'; }
 }

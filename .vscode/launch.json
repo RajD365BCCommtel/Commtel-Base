@@ -11,7 +11,7 @@
             "startupObjectType": "Page",
             "breakOnError": true,
             "launchBrowser": true,
-            "schemaUpdateMode": "ForceSync",
+            "schemaUpdateMode": "Synchronize",
             "tenant": "e7696ff4-d316-4cbf-8473-3a4cff04731d",
             "server": "https://businesscentral.dynamics.com/",
             "enableLongRunningSqlStatements": true,

@@ -22,7 +22,7 @@ report 50001 "Cmtl Copy Purchase Document"
                 group(Options)
                 {
                     Caption = 'Options';
-                    field(DocumentType; FromDocType)
+                    field(DocumentType; NewDocType)
                     {
                         ApplicationArea = Basic, Suite;
                         Caption = 'Document Type';
@@ -144,7 +144,6 @@ report 50001 "Cmtl Copy Purchase Document"
         trigger OnOpenPage()
         begin
             OnBeforeOpenPage(FromDocNo, FromDocType);
-            FromDocType := FromDocType::Requisition; //Rajesh
             if FromDocNo <> '' then begin
                 case FromDocType of
                     FromDocType::Quote:
@@ -189,9 +188,6 @@ report 50001 "Cmtl Copy Purchase Document"
                     FromDocType::"Arch. Return Order":
                         if FromPurchHeaderArchive.Get(FromPurchHeaderArchive."Document Type"::"Return Order", FromDocNo, FromDocNoOccurrence, FromDocVersionNo) then
                             FromPurchHeader.TransferFields(FromPurchHeaderArchive);
-                    FromDocType::"Arch. Requisition":
-                        if FromPurchHeaderArchive.Get(FromPurchHeaderArchive."Document Type"::Quote, FromDocNo, FromDocNoOccurrence, FromDocVersionNo) then
-                            FromPurchHeader.TransferFields(FromPurchHeaderArchive);
                 end;
                 if FromPurchHeader."No." = '' then
                     FromDocNo := '';
@@ -214,6 +210,14 @@ report 50001 "Cmtl Copy Purchase Document"
     trigger OnPreReport()
     begin
         OnBeforePreReport();
+        if (NewDocType = NewDocType::Requisition) OR (NewDocType = NewDocType::"Arch. Requisition") then begin
+            IF (NewDocType = NewDocType::Requisition) THEN
+                FromDocType := FromDocType::Quote;
+            IF (NewDocType = NewDocType::"Arch. Requisition") then
+                FromDocType := FromDocType::"Arch. Quote";
+            IsRequisition := true;
+        end else
+            FromDocType := NewDocType.AsInteger() - 1;
 
         PurchSetup.Get();
         CopyDocMgt.SetProperties(
@@ -276,6 +280,7 @@ report 50001 "Cmtl Copy Purchase Document"
         ReplaceDocDate: Boolean;
         ReplacePostDate: Boolean;
         PostingDate: Date;
+
         Text000: Label 'The price information may not be reversed correctly, if you copy a %1. If possible, copy a %2 instead or use %3 functionality.';
         Text001: Label 'Undo Receipt';
         Text002: Label 'Undo Return Shipment';
@@ -293,9 +298,12 @@ report 50001 "Cmtl Copy Purchase Document"
         IncludeHeader: Boolean;
         RecalculateLines: Boolean;
         FromDocNo: Code[20];
-        FromDocType: Enum "Cmtl Purchase Document Type";
+        FromDocType: Enum "Purchase Document Type From";
+        NewDocType: Enum "Cmtl Purchase Document Type";
         FromDocNoOccurrence: Integer;
         FromDocVersionNo: Integer;
+        IsRequisition: Boolean;
+
 
     procedure SetPurchHeader(var NewPurchHeader: Record "Purchase Header")
     begin
@@ -305,6 +313,16 @@ report 50001 "Cmtl Copy Purchase Document"
 
     local procedure ValidateDocNo()
     begin
+        Clear(IsRequisition);
+        if (NewDocType = NewDocType::Requisition) OR (NewDocType = NewDocType::"Arch. Requisition") then begin
+            IF (NewDocType = NewDocType::Requisition) THEN
+                FromDocType := FromDocType::Quote;
+            IF (NewDocType = NewDocType::"Arch. Requisition") then
+                FromDocType := FromDocType::"Arch. Quote";
+            IsRequisition := true;
+        end else
+            FromDocType := NewDocType.AsInteger() - 1;
+
         if FromDocNo = '' then begin
             FromPurchHeader.Init();
             FromDocNoOccurrence := 0;
@@ -313,7 +331,6 @@ report 50001 "Cmtl Copy Purchase Document"
             if FromDocNo <> FromPurchHeader."No." then begin
                 FromPurchHeader.Init();
                 case FromDocType of
-                    FromDocType::Requisition,
                     FromDocType::Quote,
                     FromDocType::"Blanket Order",
                     FromDocType::Order,
@@ -356,8 +373,7 @@ report 50001 "Cmtl Copy Purchase Document"
                     FromDocType::"Arch. Quote",
                     FromDocType::"Arch. Order",
                     FromDocType::"Arch. Blanket Order",
-                    FromDocType::"Arch. Return Order",
-                    FromDocType::"Arch. Requisition":
+                    FromDocType::"Arch. Return Order":
                         begin
                             FindFromPurchHeaderArchive();
                             FromPurchHeader.TransferFields(FromPurchHeaderArchive);
@@ -399,9 +415,16 @@ report 50001 "Cmtl Copy Purchase Document"
     local procedure LookupDocNo()
     begin
         OnBeforeLookupDocNo(PurchHeader, FromDocType, FromDocNo);
+        if (NewDocType = NewDocType::Requisition) OR (NewDocType = NewDocType::"Arch. Requisition") then begin
+            IF (NewDocType = NewDocType::Requisition) THEN
+                FromDocType := FromDocType::Quote;
+            IF (NewDocType = NewDocType::"Arch. Requisition") then
+                FromDocType := FromDocType::"Arch. Quote";
+            IsRequisition := true;
+        end else
+            FromDocType := NewDocType.AsInteger() - 1;
 
         case FromDocType of
-            FromDocType::Requisition,
             FromDocType::Quote,
             FromDocType::"Blanket Order",
             FromDocType::Order,
@@ -420,8 +443,7 @@ report 50001 "Cmtl Copy Purchase Document"
             FromDocType::"Arch. Quote",
             FromDocType::"Arch. Order",
             FromDocType::"Arch. Blanket Order",
-            FromDocType::"Arch. Return Order",
-            FromDocType::"Arch. Requisition":
+            FromDocType::"Arch. Return Order":
                 LookupPurchArchive();
         end;
         ValidateDocNo();
@@ -435,8 +457,7 @@ report 50001 "Cmtl Copy Purchase Document"
         FromPurchHeader.SetRange("Document Type", CopyDocMgt.GetPurchaseDocumentType(FromDocType));
         if PurchHeader."Document Type" = CopyDocMgt.GetPurchaseDocumentType(FromDocType) then
             FromPurchHeader.SetFilter("No.", '<>%1', PurchHeader."No.");
-        if FromDocType = FromDocType::Requisition then
-            FromPurchHeader.SetRange("Is Requisition", true);
+        FromPurchHeader.SetRange("Is Requisition", IsRequisition);
         FromPurchHeader.FilterGroup := 2;
         FromPurchHeader."Document Type" := CopyDocMgt.GetPurchaseDocumentType(FromDocType);
         FromPurchHeader."No." := FromDocNo;
@@ -445,7 +466,7 @@ report 50001 "Cmtl Copy Purchase Document"
                 FromPurchHeader."Buy-from Vendor No." := PurchHeader."Buy-from Vendor No.";
                 if FromPurchHeader.Find('=><') then;
             end;
-        if FromDocType = FromDocType::Requisition then begin
+        if IsRequisition then begin
             if PAGE.RunModal(Page::"Cmtl Purchase Requisition List", FromPurchHeader) = ACTION::LookupOK then
                 FromDocNo := FromPurchHeader."No.";
         end else
@@ -459,8 +480,9 @@ report 50001 "Cmtl Copy Purchase Document"
         OnLookupPurchArchiveOnBeforeSetFilters(FromPurchHeaderArchive, PurchHeader);
         FromPurchHeaderArchive.FilterGroup := 0;
         FromPurchHeaderArchive.SetRange("Document Type", CopyDocMgt.GetPurchaseDocumentType(FromDocType));
-        if FromDocType = FromDocType::"Arch. Requisition" then
-            FromPurchHeaderArchive.SetRange("Is Requisition", true);
+        //if FromDocType = FromDocType::"Arch. Requisition" then
+        //FromPurchHeaderArchive.SetRange("Is Requisition", true);
+        FromPurchHeaderArchive.SetRange("Is Requisition", IsRequisition);
         FromPurchHeaderArchive.FilterGroup := 2;
         FromPurchHeaderArchive."Document Type" := CopyDocMgt.GetPurchaseDocumentType(FromDocType);
         FromPurchHeaderArchive."No." := FromDocNo;
@@ -471,7 +493,7 @@ report 50001 "Cmtl Copy Purchase Document"
                 FromPurchHeaderArchive."Sell-to Customer No." := PurchHeader."Sell-to Customer No.";
                 if FromPurchHeaderArchive.Find('=><') then;
             end;
-        if FromDocType = FromDocType::"Arch. Requisition" then begin
+        if IsRequisition then begin
             if PAGE.RunModal(Page::"Cmtl Purch Requistn Archives", FromPurchHeaderArchive) = ACTION::LookupOK then begin
                 FromDocNo := FromPurchHeaderArchive."No.";
                 FromDocNoOccurrence := FromPurchHeaderArchive."Doc. No. Occurrence";
@@ -574,7 +596,9 @@ report 50001 "Cmtl Copy Purchase Document"
         OnAfterValidateIncludeHeader(RecalculateLines, IncludeHeader);
     end;
 
-    procedure SetParameters(NewFromDocType: Enum "Cmtl Purchase Document Type"; NewFromDocNo: Code[20]; NewIncludeHeader: Boolean; NewRecalcLines: Boolean)
+    procedure SetParameters(NewFromDocType: Enum "Cmtl Purchase Document Type"; NewFromDocNo: Code[20];
+                                                NewIncludeHeader: Boolean;
+                                                NewRecalcLines: Boolean)
     begin
         FromDocType := NewFromDocType;
         FromDocNo := NewFromDocNo;
@@ -624,7 +648,7 @@ report 50001 "Cmtl Copy Purchase Document"
     end;
 
     [IntegrationEvent(false, false)]
-    local procedure OnBeforeLookupDocNo(var PurchaseHeader: Record "Purchase Header"; var FromDocType: Enum "Cmtl Purchase Document Type"; var FromDocNo: Code[20])
+    local procedure OnBeforeLookupDocNo(var PurchaseHeader: Record "Purchase Header"; var FromDocType: Enum "Purchase Document Type From"; var FromDocNo: Code[20])
     begin
     end;
 
@@ -654,7 +678,7 @@ report 50001 "Cmtl Copy Purchase Document"
     end;
 
     [IntegrationEvent(false, false)]
-    local procedure OnBeforeOpenPage(var FromDocNo: Code[20]; var FromDocType: Enum "Cmtl Purchase Document Type")
+    local procedure OnBeforeOpenPage(var FromDocNo: Code[20]; var FromDocType: Enum "Purchase Document Type From")
     begin
     end;
 
