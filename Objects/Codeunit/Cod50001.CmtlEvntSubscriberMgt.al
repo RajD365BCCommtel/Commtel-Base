@@ -61,14 +61,14 @@ codeunit 50001 "Cmtl Evnt. Subscriber Mgt"
     end;
 
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Notification Management", 'OnGetDocumentTypeAndNumber', '', true, true)]
-    local procedure Next50OnGetDocumentTypeAndNumber(var RecRef: RecordRef; var DocumentType: Text; var DocumentNo: Text; var IsHandled: Boolean)
+    local procedure CmtlOnGetDocumentTypeAndNumber(var RecRef: RecordRef; var DocumentType: Text; var DocumentNo: Text; var IsHandled: Boolean)
     var
     begin
 
     end;
 
     [EventSubscriber(ObjectType::Report, Report::"Notification Email", 'OnBeforeGetDocumentTypeAndNumber', '', true, true)]
-    local procedure OnBeforeGetDocumentTypeAndNumber(VAR NotificationEntry: Record "Notification Entry"; VAR RecRef: RecordRef; VAR DocumentType: Text; VAR DocumentNo: Text; VAR IsHandled: Boolean)
+    local procedure CmtlOnBeforeGetDocumentTypeAndNumber(VAR NotificationEntry: Record "Notification Entry"; VAR RecRef: RecordRef; VAR DocumentType: Text; VAR DocumentNo: Text; VAR IsHandled: Boolean)
     VAR
         FieldRef: FieldRef;
         FieldRef2: FieldRef;
@@ -86,7 +86,7 @@ codeunit 50001 "Cmtl Evnt. Subscriber Mgt"
     end;
 
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Purch.-Quote to Order", 'OnBeforeArchivePurchaseQuote', '', false, false)]
-    local procedure OnBeforeArchivePurchaseQuote(var PurchaseHeader: Record "Purchase Header"; PurchaseOrderHeader: Record "Purchase Header"; var IsHandled: Boolean)
+    local procedure CmtlOnBeforeArchivePurchaseQuote(var PurchaseHeader: Record "Purchase Header"; PurchaseOrderHeader: Record "Purchase Header"; var IsHandled: Boolean)
     var
         PurchSetup: Record "Purchases & Payables Setup";
         ArchiveManagement: Codeunit ArchiveManagement;
@@ -105,6 +105,40 @@ codeunit 50001 "Cmtl Evnt. Subscriber Mgt"
 
         IsHandled := true;
     end;
+
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Notification Entry Dispatcher", 'OnBeforeCreateMailAndDispatch', '', false, false)]
+    local procedure OnBeforeCreateMailAndDispatch(var NotificationEntry: Record "Notification Entry"; var MailSubject: Text; var Email: Text; var IsHandled: Boolean)
+    begin
+        GetCustomNoteBody(NotificationEntry, MailSubject);
+    end;
+
+    local procedure GetCustomNoteBody(var NotificationEntry: Record "Notification Entry"; var Subject: Text)
+    var
+        NotificationEntryDispatcher: codeunit "Notification Entry Dispatcher";
+        NotificationManagement: Codeunit "Notification Management";
+        RecRef: RecordRef;
+        PRFieldRef: FieldRef;
+        DocumentType: Text;
+        DocumentNo: Text;
+        DocumentName: Text;
+        ActionText: Text;
+    begin
+        NotificationEntryDispatcher.GetTargetRecRef(NotificationEntry, RecRef);
+        PRFieldRef := RecRef.Field(50001);
+        if Format(PRFieldRef.Value) = 'Yes' then begin
+            NotificationManagement.GetDocumentTypeAndNumber(RecRef, DocumentType, DocumentNo);
+            DocumentName := 'Purchase Requisition' + ' ' + DocumentNo;
+            ActionText := NotificationManagement.GetActionTextFor(NotificationEntry);
+            Subject := DocumentName + ' ' + ActionText;
+        end;
+    end;
+
+    [EventSubscriber(ObjectType::Report, Report::"Notification Email", 'OnSetReportFieldPlaceholdersOnBeforeGetWebUrl', '', false, false)]
+    local procedure OnSetReportFieldPlaceholdersOnBeforeGetWebUrl(RecRef: RecordRef; var Field1Label: Text; var Field1Value: Text; var Field2Label: Text; var Field2Value: Text; var Field3Label: Text; var Field3Value: Text; var SourceRecRef: RecordRef; var DetailsLabel: Text; var DetailsValue: Text; NotificationEntry: Record "Notification Entry")
+    begin
+        DetailsValue := DetailsValue + ' | ' + Format(CurrentDateTime());
+    end;
+
     // [EventSubscriber(ObjectType::Codeunit, Codeunit::"Notification Entry Dispatcher", 'OnAddNoteOnAfterGetUrl', '', false, false)]
     // local procedure OnAddNoteOnAfterGetUrl(var Link: Text; NotificationEntry: Record "Notification Entry"; RecRefLink: RecordRef)
     // var
